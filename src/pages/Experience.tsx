@@ -1,23 +1,44 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { StyledBodyWrapper, StyledCentralBody, StyledMain } from "../components/Styles";
+import { workExperience } from "../components/static";
+import {
+  ProjectEntryWrapper,
+  ProjectListWrapper,
+  StyledBodyWrapper,
+  StyledCentralBody,
+  StyledMain,
+} from "../components/Styles";
 
-export default function Experience(){
-  return(
+export default function Experience() {
+  return (
     <>
-    <StyledBodyWrapper>
-        <Header page="Experience"/>
+      <StyledBodyWrapper>
+        <Header page="Experience" />
         <StyledCentralBody>
           <Navbar />
           <StyledMain>
-            <h2>Home</h2>
-            <p> Current student at Boston University</p>
-            
+            <h2>Job experience</h2>
+            <ProjectListWrapper>
+              {workExperience.map((item) => (
+                <ProjectEntryWrapper key={item.date}>
+                  <h3>{item.companyTitle}</h3>
+                  <p>Position: {item.jobTitle}</p>
+                  <p>Responsibility:</p>
+                  <ul>
+                    {item.responsibility.map((respon) => (
+                      <li>
+                        <p>{respon}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </ProjectEntryWrapper>
+              ))}
+            </ProjectListWrapper>
           </StyledMain>
         </StyledCentralBody>
         <Footer />
       </StyledBodyWrapper>
     </>
-  )
+  );
 }

@@ -1,23 +1,45 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { StyledBodyWrapper, StyledCentralBody, StyledMain } from "../components/Styles";
+import { certifications, skills } from "../components/static";
+import {
+  ProjectEntryWrapper,
+  ProjectListWrapper,
+  StyledBodyWrapper,
+  StyledCentralBody,
+  StyledMain,
+} from "../components/Styles";
 
-export default function Certifications(){
-  return(
+export default function Certifications() {
+  return (
     <>
-    <StyledBodyWrapper>
+      <StyledBodyWrapper>
         <Header page="Certification" />
         <StyledCentralBody>
           <Navbar />
           <StyledMain>
-            <h2>Home</h2>
-            <p> Current student at Boston University</p>
-            
+            <h2>Certification</h2>
+            <ProjectListWrapper>
+              {certifications.map((item) => (
+                <ProjectEntryWrapper key={item.title} padding="5" marginbot="5">
+                  <h3>{item.title}</h3>
+                  <p>By: {item.givenBy}</p>
+                </ProjectEntryWrapper>
+              ))}
+            </ProjectListWrapper>
+
+            <h2>Skills</h2>
+            <ProjectListWrapper>
+              {skills.map((item) => (
+                <ProjectEntryWrapper key={item} padding="5" marginbot="5">
+                  <h3>{item}</h3>
+                </ProjectEntryWrapper>
+              ))}
+            </ProjectListWrapper>
           </StyledMain>
         </StyledCentralBody>
         <Footer />
       </StyledBodyWrapper>
     </>
-  )
+  );
 }

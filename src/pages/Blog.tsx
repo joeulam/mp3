@@ -1,7 +1,8 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import { StyledBodyWrapper, StyledCentralBody, StyledMain } from "../components/Styles";
+import { blogPost } from "../components/static";
+import { ProjectEntryWrapper, ProjectListWrapper, StyledBodyWrapper, StyledCentralBody, StyledH2, StyledMain } from "../components/Styles";
 
 export default function Blog(){
   return(
@@ -11,9 +12,17 @@ export default function Blog(){
         <StyledCentralBody>
           <Navbar />
           <StyledMain>
-            <h2>Home</h2>
-            <p> Current student at Boston University</p>
-            
+            <h2>Updates</h2>
+            <ProjectListWrapper>
+              {
+                blogPost.map((entry) => (
+                  <ProjectEntryWrapper key={entry.id} padding="5">
+                    <StyledH2 fontSize="16">{entry.title}</StyledH2>
+                    <p>{entry.blog}</p>
+                  </ProjectEntryWrapper>
+                ))
+              }
+            </ProjectListWrapper>           
           </StyledMain>
         </StyledCentralBody>
         <Footer />

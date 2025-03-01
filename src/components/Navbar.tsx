@@ -6,13 +6,14 @@ const StyledNavBar = styled.div`
   width: 25%;
   margin-right: 1vw;
   background-color: #faedcd;
-  height: 80vh;
+  min-height: 80vh;
   @media screen and (max-width: 750px){  
     margin-left: 0;
     width: 100%;
-    height: 5%;
     display: flex;
     justify-content: center;
+    min-height: 5vh;
+
   }
 `;
 const StyledUl = styled.ul`
@@ -46,7 +47,7 @@ const Styleda = styled(Link)`
 const StyledLi = styled.li`
   margin-top: 5vh;
   @media screen and (max-width: 750px){  
-    flex: 1; /* makes the buttons same sized src=w3school*/
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +60,7 @@ export default function Navbar() {
     <StyledNavBar>
       <StyledUl>
         {navBarLinks.map((item: NavInfo) => (
-          <StyledLi>
+          <StyledLi key={item.title}>
             <Styleda to={item.url}>{item.title}</Styleda>
           </StyledLi>
         ))}
