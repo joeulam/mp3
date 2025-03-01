@@ -30,7 +30,7 @@ export default function Experience() {
                   <p>Responsibility:</p>
                   <ul>
                     {item.responsibility.map((respon) => (
-                      <li>
+                      <li key={respon}>
                         <p>{respon}</p>
                       </li>
                     ))}

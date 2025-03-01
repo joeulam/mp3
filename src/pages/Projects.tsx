@@ -112,7 +112,7 @@ export default function Projects() {
             <h2>Projects</h2>
             <ProjectListWrapper>
               {projectList.map((project) => (
-                <ProjectEntryWrapper>
+                <ProjectEntryWrapper key={project.title}>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <p>{project.techStack}</p>
