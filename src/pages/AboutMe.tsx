@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { StyledBodyWrapper, StyledCentralBody, StyledMain } from "../components/Styles";
+import Title from "../components/Title";
 
 const StyledPhotoAndDescriptionWrapper = styled.div`
   margin-top: 5vh;
@@ -28,6 +29,7 @@ const StyledHeadshot = styled.img`
 export default function AboutMe(){
   return(
     <>
+      <Title header="About Me | Joey Resume"/>
       <StyledBodyWrapper>
         <Header page="About Me"/>
         <StyledCentralBody>

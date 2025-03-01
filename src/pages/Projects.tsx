@@ -12,7 +12,16 @@ import {
   StyledMain,
 } from "../components/Styles";
 import { useState } from "react";
-import { addition, division, multiplication, powerFunction, ResponseData, subtraction, useProcessFunctionData } from "../components/calculatorFunction";
+import {
+  addition,
+  division,
+  multiplication,
+  powerFunction,
+  ResponseData,
+  subtraction,
+  useProcessFunctionData,
+} from "../components/calculatorFunction";
+import Title from "../components/Title";
 
 const StyledMultiButton = styled.div`
   display: flex;
@@ -74,7 +83,7 @@ const StyledInputs = styled.input`
   height: 3vh;
 `;
 
-const StyledResult = styled.h3<{color?:string}>`
+const StyledResult = styled.h3<{ color?: string }>`
   margin-top: 5vh;
   border-style: solid;
   padding: 10% 20%;
@@ -83,16 +92,18 @@ const StyledResult = styled.h3<{color?:string}>`
   height: 15%;
   overflow-wrap: break-word;
   background-color: #f8f8f2;
-  color: ${(color) => color.color}
+  color: ${(color) => color.color};
 `;
 
 export default function Projects() {
   const { color, result, processFunctionData } = useProcessFunctionData();
-  const [value1,setValue1] = useState(0);
-  const [value2,setValue2] = useState(0);
-  
+  const [value1, setValue1] = useState(0);
+  const [value2, setValue2] = useState(0);
+
   return (
     <>
+      <Title header="Projects | Joey Resume" />
+
       <StyledBodyWrapper>
         <Header page="Projects" />
         <StyledCentralBody>
@@ -124,16 +135,61 @@ export default function Projects() {
               </StyledH2>
               <StyledResult color={color}>{result}</StyledResult>
               <StyledInputName>First input</StyledInputName>
-              <StyledInputs type="number" value={value1 == 0 ? "" : value1} onChange={(value) => setValue1(Number(value.target.value))}></StyledInputs>
+              <StyledInputs
+                type="number"
+                value={value1 == 0 ? "" : value1}
+                onChange={(value) => setValue1(Number(value.target.value))}
+              ></StyledInputs>
               <StyledInputName>Second input</StyledInputName>
-              <StyledInputs type="number" value={value2 == 0 ? "" : value2} onChange={(value) => setValue2(Number(value.target.value))}></StyledInputs>
+              <StyledInputs
+                type="number"
+                value={value2 == 0 ? "" : value2}
+                onChange={(value) => setValue2(Number(value.target.value))}
+              ></StyledInputs>
               <StyledButtonGroup>
-                <StyledButton onClick={() => processFunctionData(addition(value1,value2))}>+</StyledButton>
-                <StyledButton onClick={() => processFunctionData(subtraction(value1,value2))}>-</StyledButton>
-                <StyledButton onClick={() => processFunctionData(multiplication(value1,value2))}>*</StyledButton>
-                <StyledButton onClick={() => processFunctionData(division(value1,value2))}>/</StyledButton>
-                <StyledButton onClick={() => processFunctionData(powerFunction(value1,value2))}>**</StyledButton>
-                <StyledButton onClick={() => {processFunctionData({total:0, isPos:""} as ResponseData); setValue1(0); setValue2(0)}}>Clear</StyledButton>
+                <StyledButton
+                  onClick={() => processFunctionData(addition(value1, value2))}
+                >
+                  +
+                </StyledButton>
+                <StyledButton
+                  onClick={() =>
+                    processFunctionData(subtraction(value1, value2))
+                  }
+                >
+                  -
+                </StyledButton>
+                <StyledButton
+                  onClick={() =>
+                    processFunctionData(multiplication(value1, value2))
+                  }
+                >
+                  *
+                </StyledButton>
+                <StyledButton
+                  onClick={() => processFunctionData(division(value1, value2))}
+                >
+                  /
+                </StyledButton>
+                <StyledButton
+                  onClick={() =>
+                    processFunctionData(powerFunction(value1, value2))
+                  }
+                >
+                  **
+                </StyledButton>
+                <StyledButton
+                  onClick={() => {
+                    processFunctionData({
+                      total: 0,
+                      isPos: "",
+                    } as ResponseData);
+                    setValue1(0);
+                    setValue2(0);
+                  }}
+                >
+                  Clear
+                </StyledButton>
               </StyledButtonGroup>
             </CalculatorWrapper>
           </StyledMain>

@@ -9,10 +9,13 @@ import {
   StyledCentralBody,
   StyledMain,
 } from "../components/Styles";
+import Title from "../components/Title";
 
 export default function Experience() {
   return (
     <>
+      <Title header="Experience | Joey Resume" />
+
       <StyledBodyWrapper>
         <Header page="Experience" />
         <StyledCentralBody>
