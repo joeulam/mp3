@@ -7,8 +7,6 @@ export const StyledBodyWrapper = styled.div`
   background-color: #fefae0;
 
   @media screen and (max-width: 750px){  
-    margin: 0;
-    width: 100%;
     background-color: #fefae0;
     border-radius: 0;
   }
