@@ -15,7 +15,6 @@ export default function Certifications() {
   return (
     <>
       <Title header="Certifications | Joey Resume" />
-
       <StyledBodyWrapper>
         <Header page="Certification" />
         <StyledCentralBody>
