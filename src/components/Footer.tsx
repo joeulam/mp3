@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledFooter = styled.div`
@@ -12,7 +13,7 @@ const StyledFooter = styled.div`
 export default function Footer(){
   return(
     <StyledFooter>
-      <p>All Rights Reserved by Joey Lam <a href="_blank">Credit</a>&#169;</p>
+      <p>All Rights Reserved by Joey Lam <Link to="_blank">Credit</Link>&#169;</p>
     </StyledFooter>
   )
 }
